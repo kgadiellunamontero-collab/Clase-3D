@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Center | 3D Car Creator Pro</title>
+    <style>
+        /* Efecto LED en el borde */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #050505;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            border: 6px solid;
+            border-image: linear-gradient(45deg, #ff0000, #ff00f7, #0011ff, #00f7ff, #00ff11, #fbff00, #ff0000) 1;
+            animation: borderRotate 4s linear infinite;
+            overflow: hidden;
+        }
+
+        @keyframes borderRotate {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        /* Contenedor de Descarga */
+        .download-card {
+            background: #111;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+            border: 1px solid #333;
+            max-width: 400px;
+        }
+
+        .icon-3d { font-size: 60px; margin-bottom: 20px; }
+        
+        h2 { color: #00d4ff; margin-bottom: 10px; }
+        p { color: #888; font-size: 14px; margin-bottom: 30px; }
+
+        /* El botón "Trampa" */
+        .btn-download {
+            background: linear-gradient(90deg, #00d4ff, #0055ff);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+        }
+
+        .btn-download:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        /* Botón Admin Oculto */
+        #admin-trigger {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            background: transparent;
+            border: none;
+            color: #222; /* Casi invisible */
+            cursor: pointer;
+            font-size: 10px;
+        }
+
+        /* Panel Admin */
+        #admin-panel {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #1a1a1a;
+            padding: 30px;
+            border: 2px solid #00d4ff;
+            border-radius: 15px;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="download-card">
+        <div class="icon-3d">??</div>
+        <h2>3D Car Creator v4.2</h2>
+        <p>Para visualizar los modelos 3D de la clase, necesitas descargar el complemento de renderizado v4.2 (142 MB).</p>
+        
+        <a href="AQUÍ_PEGA_TU_LINK_DE_GOOGLE_FORMS" class="btn-download">Descargar Ahora</a>
+        
+        <div style="margin-top: 20px; font-size: 11px; color: #444;">
+            Verificado por el Departamento de Informática
+        </div>
+    </div>
+
+    <button id="admin-trigger" onclick="loginAdmin()">[System_Admin]</button>
+
+    <div id="admin-panel" id="panel">
+        <h3 style="color: #00d4ff;">Panel de Control Profesor</h3>
+        <p>Estudiantes que han hecho clic: <strong id="counter">Cargando...</strong></p>
+        <button onclick="document.getElementById('admin-panel').style.display='none'" style="background: red; color: white; border: none; padding: 5px 10px; cursor: pointer;">Cerrar</button>
+    </div>
+
+    <script>
+        function loginAdmin() {
+            const pass = prompt("Clave de acceso:");
+            if(pass === "1234") {
+                document.getElementById('admin-panel').style.display = 'block';
+                // Aquí podrías simular que carga datos
+                document.getElementById('counter').innerText = Math.floor(Math.random() * 10) + " detectados";
+            } else {
+                alert("Acceso no autorizado.");
+            }
+        }
+    </script>
+</body>
+</html>
